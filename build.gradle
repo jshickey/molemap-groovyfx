@@ -1,0 +1,48 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'groovy'
+//apply from: 'javafx.plugin'
+apply plugin:'application'
+
+//mainClassName = "Main"
+mainClassName = "molemap.Main"
+
+def javaFxHome = "${System.properties['java.home']}";
+
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': version
+    }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.3.6'
+    compile 'org.codehaus.groovyfx:groovyfx:0.4.0'
+    compile files("${System.getenv('JAVA_HOME')}/jre/lib/ext/jfxrt.jar")
+    //providedCompile files("$javaFxHome/lib/jfxrt.jar")
+    println ("$javaFxHome/lib/ext/jfxrt.jar")
+    compile files("$javaFxHome/lib/ext/jfxrt.jar")
+
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+        flatDir {
+            dirs 'repos'
+        }
+    }
+}
