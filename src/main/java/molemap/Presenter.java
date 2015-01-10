@@ -28,12 +28,11 @@ class Presenter {
         gShell = new GroovyShell(binding);
     }
 
-    void login(String pass) {
-        String result = "Incorrect Password";
-        if (model.getPassword().equals(pass)) {
-            result = "correct password";
-        }
-        result = gShell.evaluate(pass).toString();
-        view.updateStatusLabel(result);
+    public void handleLiterButton(String liters) {
+       // update model
+       model.setLiters(Double.valueOf(liters));
+        
+       // update view
+       view.setVolumeButtonText(liters);
     }
 }

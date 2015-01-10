@@ -6,22 +6,42 @@
 
 package molemap;
 
-/**
- *
- * @author jshickey
- */
 class Model {
-    private String password;
+    private double liters;
+    private double grams;
+    private double moles;
+    private double atoms;
 
-    public String getPassword() {
-        return password;
+    public double getLiters() {
+        return liters;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setLiters(double liters) {
+        this.liters = liters;
+    }
+
+    public double getGrams() {
+        return grams;
+    }
+
+    public void setGrams(double grams) {
+        this.grams = grams;
+    }
+
+    public double getMoles() {
+        return moles;
+    }
+
+    public void setMoles(double moles) {
+        this.moles = moles;
+    }
+
+    public double getAtoms() {
+        return atoms;
+    }
+
+    public void setAtoms(double atoms) {
+        this.atoms = atoms;
     }
     
-    public Model() {
-        password = "Password";
-    }
 }
